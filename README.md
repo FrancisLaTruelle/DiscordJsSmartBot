@@ -4,6 +4,8 @@ This project is a personal project to train with NodeJs and DiscordJs. I'll add 
 I'm trying to make a bot with a lot of features and optimize as best as possible, sorry if there isn't a lot of comment ^^'
 There will be more documentation when the bot is complete.
 
+Inspired of : https://github.com/KSJaay/Alita
+
 # Ideas and Commands
 
 **Name:** The name of the command
