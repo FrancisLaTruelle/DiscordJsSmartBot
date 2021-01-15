@@ -1,0 +1,5 @@
+{
+    "token": "YOUR DISCORD BOT TOKEN",
+    "mongoDB" : "YOUR URL FOR MONGODB BASE",
+    "prefix": "s!"
+}

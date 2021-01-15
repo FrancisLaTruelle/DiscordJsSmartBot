@@ -18,12 +18,11 @@ module.exports = {
         if (args[0]) {
             var countrie = args.slice(0).join(' ').toLowerCase()
             let covidData = await helper.countriesUpdateData()
-            console.log((countrie+'').charAt(0).toUpperCase()+countrie.substr(1))
+            let resolved = false
             for (let i = 0; i < covidData.Countries.length; i++) {
-                if(covidData.Countries[i].Country === (countrie+'').charAt(0).toUpperCase()+countrie.substr(1)) {
-                    console.log("founded :)")
+                if(covidData.Countries[i].CountryCode === countrie.toUpperCase()) {
                     const embed = new Discord.MessageEmbed()
-                        .setTitle("COVID-19 Statistiques en " + (countrie+'').charAt(0).toUpperCase()+countrie.substr(1))
+                        .setTitle("COVID-19 Statistiques en " + covidData.Countries[i].Country)
                         .setDescription("[Conseils au public](https://www.gouvernement.fr/info-coronavirus)")
                         .setThumbnail("https://images-ext-1.discordapp.net/external/VuHYALYsfPqddjfhxSB7hYmoACEYNgJdxlcE5lQDFHo/https/cdn.koya.gg/utilities/COVID-19.png")
                         .addField("Nouveaux cas", covidData.Countries[i].NewConfirmed, true)
@@ -33,6 +32,12 @@ module.exports = {
                         .addField("Total des décès", covidData.Countries[i].TotalDeaths, true)
                         .addField("Total des guérisons", covidData.Countries[i].TotalRecovered, true)
                     message.channel.send(embed)
+                    resolved = true
+                }
+                if (Object.keys(covidData.Countries).length === i + 1) {
+                    if (resolved === false) {
+                        message.channel.send(":x: **|** Pays introuvable !\n__Exemple__: `" + data.guild.prefix + "covid FR` pour obtenir les statisques en France !")
+                    }
                 }
             }
             

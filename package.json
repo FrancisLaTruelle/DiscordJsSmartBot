@@ -4,18 +4,15 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "@vitalets/google-translate-api": "^4.0.0",
     "asciimo": "^0.3.1",
     "chalk": "^4.1.0",
     "chart.js": "^2.9.4",
     "chartjs-node-canvas": "^3.0.6",
     "discord-anti-spam": "^2.4.1",
     "discord.js": "^12.5.1",
-    "google-translate-open-api": "^1.3.7",
     "moment": "^2.29.1",
     "mongoose": "^5.11.10",
-    "reverso-api": "^2.16.1",
-    "translate-google": "^1.4.3"
+    "reverso-api": "^2.16.1"
   },
   "repository": {
     "type": "git",
