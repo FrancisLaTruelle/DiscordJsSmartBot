@@ -17,10 +17,11 @@ module.exports = {
     async execute(client, message, args, data) {
         if (args[0]) {
             var countrie = args.slice(0).join(' ').toLowerCase()
-            let covidData = await helper.countriesUpdateData()
+            let covidData = await helper.totalUpdateData()
             let resolved = false
             for (let i = 0; i < covidData.Countries.length; i++) {
                 if(covidData.Countries[i].CountryCode === countrie.toUpperCase()) {
+                    let covidData = await helper.totalUpdateData()
                     const embed = new Discord.MessageEmbed()
                         .setTitle("COVID-19 Statistiques en " + covidData.Countries[i].Country)
                         .setDescription("[Conseils au public](https://www.gouvernement.fr/info-coronavirus)")
@@ -31,6 +32,9 @@ module.exports = {
                         .addField("Total des cas", covidData.Countries[i].TotalConfirmed, true)
                         .addField("Total des décès", covidData.Countries[i].TotalDeaths, true)
                         .addField("Total des guérisons", covidData.Countries[i].TotalRecovered, true)
+                        .addField("Total des cas mondial", covidData.Global.TotalConfirmed, true)
+                        .addField("Total des décès mondial", covidData.Global.TotalDeaths, true)
+                        .addField("Total des guérisons mondial", covidData.Global.TotalRecovered, true)
                     message.channel.send(embed)
                     resolved = true
                 }
@@ -47,12 +51,12 @@ module.exports = {
                 .setTitle("COVID-19 Statistiques mondiales")
                 .setDescription("[Conseils au public](https://www.gouvernement.fr/info-coronavirus)")
                 .setThumbnail("https://images-ext-1.discordapp.net/external/VuHYALYsfPqddjfhxSB7hYmoACEYNgJdxlcE5lQDFHo/https/cdn.koya.gg/utilities/COVID-19.png")
-                .addField("Nouveaux cas", covidData.NewConfirmed, true)
-                .addField("Nouveaux décès", covidData.NewDeaths, true)
-                .addField("Nouvelles guérisons", covidData.NewRecovered, true)
-                .addField("Total des cas", covidData.TotalConfirmed, true)
-                .addField("Total des décès", covidData.TotalDeaths, true)
-                .addField("Total des guérisons", covidData.TotalRecovered, true)
+                .addField("Nouveaux cas", covidData.Global.NewConfirmed, true)
+                .addField("Nouveaux décès", covidData.Global.NewDeaths, true)
+                .addField("Nouvelles guérisons", covidData.Global.NewRecovered, true)
+                .addField("Total des cas", covidData.Global.TotalConfirmed, true)
+                .addField("Total des décès", covidData.Global.TotalDeaths, true)
+                .addField("Total des guérisons", covidData.Global.TotalRecovered, true)
                 .setImage("https://covid19.mathdro.id/api/og")
             message.channel.send(embed)
         }
