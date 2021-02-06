@@ -5,7 +5,7 @@ module.exports = {
     name: "antialt",
     description: "Interdisez l'accès à votre serveur aux membres avec un compte trop récent (-24h)",
     usage: "antialt [true/false]",
-    ond: true,
+    enabled: true,
     aliases: [],
     category: "Administrateur",
     memberPermissions: [ "ADMINISTRATOR" ],

@@ -15,13 +15,12 @@ module.exports = {
     ownerOnly: false,
 
     async execute(client, message, args, data) {
+        let covidData = await helper.totalUpdateData()
         if (args[0]) {
             var countrie = args.slice(0).join(' ').toLowerCase()
-            let covidData = await helper.totalUpdateData()
             let resolved = false
             for (let i = 0; i < covidData.Countries.length; i++) {
                 if(covidData.Countries[i].CountryCode === countrie.toUpperCase()) {
-                    let covidData = await helper.totalUpdateData()
                     const embed = new Discord.MessageEmbed()
                         .setTitle("COVID-19 Statistiques en " + covidData.Countries[i].Country)
                         .setDescription("[Conseils au public](https://www.gouvernement.fr/info-coronavirus)")
@@ -46,7 +45,6 @@ module.exports = {
             }
             
         } else {
-            let covidData = await helper.totalUpdateData()
             const embed = new Discord.MessageEmbed()
                 .setTitle("COVID-19 Statistiques mondiales")
                 .setDescription("[Conseils au public](https://www.gouvernement.fr/info-coronavirus)")
