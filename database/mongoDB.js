@@ -1,7 +1,8 @@
 const Discord = require("discord.js")
-const config = require("./../config.json")
+const config = require("../config.json")
 
 const guildsDB = require("./schemas/guildSchema")
+
 
 module.exports.getGuildDB = async function (guildID){
 
