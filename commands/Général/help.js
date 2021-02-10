@@ -37,7 +37,7 @@ module.exports = {
 
             let embed = new Discord.MessageEmbed()
                 .setTitle(`Aide pour la commande : ${cmd.name}`)
-                .setDescription(`**Description:** ${cmd.description}\n**Utilisation:** \`${data.guild.prefix}${cmd.usage}\`\n**Catégorie:** ${cmd.category}\n**Temps entre chaque utilisation:** ${cmd.cooldown/1000} secondes\n**Aliases:** ${cmd.aliases}\n**NSFW:** ${cmd.nsfw}`)
+                .setDescription(`**Description:** ${cmd.description}\n**Utilisation:** \`${data.guild.prefix}${cmd.usage}\`\n**Catégorie:** ${cmd.category}\n**Temps entre chaque utilisation:** ${cmd.cooldown/1000} secondes\n**Aliases:** ${cmd.aliases}\n**Commande NSFW:** ${cmd.nsfw === true ? "Oui" : "Non"}\n**Permission(s) requise(s):** ${cmd.memberPermissions}`)
                 .setColor("GREEN")
             return message.channel.send(embed)
 
