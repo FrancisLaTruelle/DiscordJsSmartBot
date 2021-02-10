@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 module.exports = {
     name: "randomnum",
     description: "Donner un nombre aléatoire dans une plage si voulu",
-    usage: "randomnum [args[0] num] [args[1] num]",
+    usage: "randomnum [min] [max]",
     enabled: true,
     aliases: [],
     category: "Aléatoire",
